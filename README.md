@@ -34,9 +34,13 @@ pipenv shell
 ```
 cd .\src\gg_analytics\
 ```
-* Load the dbt dependencies
+* Test installation by running dbt debug
 ```
-dbt deps
+dbt debug
+```
+* Run seeds and models
+```
+dbt build
 ```
 
 ## Help
