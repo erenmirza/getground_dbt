@@ -11,12 +11,20 @@ The repository is to:
 
 ## Getting Started
 
-Create a file called `profiles.yml` in the root folder of this repository and paste in the below:
+Replace the path to the `DBT_PROFILES_DIR` key in the .ENV file
+
+The value should be your local path to the root of this repository
+```
+DBT_PROFILES_DIR={YOUR_LOCAL_PATH_TO_REPOSITORY}
+```
+
+The profiles.yml file in the root of the repository should contain the following contents:
 ```yml
 gg_analytics:
   outputs:
     dev:
       type: duckdb
+      path: ../../dbfile.duckdb
   target: dev
 ```
 
