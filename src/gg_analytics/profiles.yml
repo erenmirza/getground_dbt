@@ -1,0 +1,6 @@
+gg_analytics:
+  outputs:
+    dev:
+      type: duckdb
+      path: ../../dbfile.duckdb
+  target: dev

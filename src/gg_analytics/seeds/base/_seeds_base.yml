@@ -1,0 +1,30 @@
+version: 2
+
+seeds:
+
+  - name: GG_PARTNERS_RAW
+    config:
+      column_types:
+        id: varchar
+        created_at: varchar
+        updated_at: varchar
+        partner_type: varchar
+        lead_sales_contact: varchar
+
+  - name: GG_REFERRALS_RAW
+    config:
+      column_types:
+        id: varchar
+        created_at: varchar
+        updated_at: varchar
+        company_id: varchar
+        partner_id: varchar
+        consultant_id: varchar
+        status: varchar
+        is_outbound: varchar
+
+  - name: GG_SALES_PEOPLE_RAW
+    config:
+      column_types:
+        name: varchar
+        country: varchar
