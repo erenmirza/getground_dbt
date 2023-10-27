@@ -11,15 +11,32 @@ The repository is to:
 
 ## Getting Started
 
+Create a file called `profiles.yml` in the root folder of this repository and paste in the below:
+```yml
+gg_analytics:
+  outputs:
+    dev:
+      type: duckdb
+  target: dev
+```
+
 ### Installation
 
 * Install the virtual environment
 ```
-pipenv shell
+pipenv install
 ```
 * Load the virtual environment
 ```
 pipenv shell
+```
+* Change to the dbt directory
+```
+cd .\src\gg_analytics\
+```
+* Load the dbt dependencies
+```
+dbt deps
 ```
 
 ## Help

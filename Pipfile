@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 dbt-core = "*"
 duckdb = "*"
+dbt-duckdb = "*"
+duckcli = "*"
 
 [dev-packages]
 
