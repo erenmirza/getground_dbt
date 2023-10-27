@@ -4,7 +4,7 @@
 
 The repository is to:
 - Create a local SQL database for any user to run
-- Insert data into the SQL databas
+- Insert data into the SQL database
 - Run some SQL queries and analysis
 - Document the models and queries
 - Explain and visualize outputs to the questions asked
