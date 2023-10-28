@@ -3,4 +3,4 @@ version: 2
 models:
   - name: GG_PARTNERS
   - name: GG_REFERRALS
-  - name: GG_SALES_PEOPLE
+  - name: GG_SALES_CONTACT

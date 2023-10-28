@@ -1,4 +1,9 @@
 version: 2
 
 models:
-  - name: COMPANY_REFERRALS
+  - name: COMPANY
+  - name: COUNTRY
+  - name: PARTNER_CONSULTANT
+  - name: PARTNER_REFERRALS
+  - name: PARTNER
+  - name: SALES_CONTACT

@@ -35,3 +35,7 @@ models:
   base:
     +materialized: view
     +schema: BASE
+
+  model:
+    +materialized: view
+    +schema: MODEL

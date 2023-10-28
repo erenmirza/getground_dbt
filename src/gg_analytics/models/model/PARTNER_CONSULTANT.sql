@@ -1,0 +1,24 @@
+with
+CTE_REFERALLS_SOURCE as (
+  select *
+  from {{ ref('GG_REFERRALS') }}
+)
+
+, CTE_PARTNER_CONSULTANTS as (
+  select distinct
+    PARTNER_ID
+    , PARTNER_CONSULTANT_ID
+  from CTE_REFERALLS_SOURCE
+)
+
+, CTE_FINAL as (
+  select
+    PARTNER_ID
+    , PARTNER_CONSULTANT_ID
+    {# , FIRST_REFERRALL_DATE_TIME #}
+    {# , LAST_REFERRALL_DATE_TIME #}
+  from CTE_PARTNER_CONSULTANTS
+)
+
+select *
+from CTE_FINAL

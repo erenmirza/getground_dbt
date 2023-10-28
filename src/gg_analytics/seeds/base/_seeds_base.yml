@@ -2,7 +2,7 @@ version: 2
 
 seeds:
 
-  - name: GG_PARTNERS_RAW
+  - name: PARTNERS_RAW
     config:
       column_types:
         id: varchar
@@ -11,7 +11,7 @@ seeds:
         partner_type: varchar
         lead_sales_contact: varchar
 
-  - name: GG_REFERRALS_RAW
+  - name: REFERRALS_RAW
     config:
       column_types:
         id: varchar
@@ -23,7 +23,7 @@ seeds:
         status: varchar
         is_outbound: varchar
 
-  - name: GG_SALES_PEOPLE_RAW
+  - name: SALES_PEOPLE_RAW
     config:
       column_types:
         name: varchar
