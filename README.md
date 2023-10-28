@@ -9,6 +9,8 @@ The repository is to:
 - Document the models and queries
 - Explain and visualize outputs to the questions asked
 
+See the file `conceptual_erd.md` in `/docs` for an explanation of the models and their relationships
+
 ## Getting Started
 
 Replace the path to the `DBT_PROFILES_DIR` key in the .ENV file

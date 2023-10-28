@@ -6,8 +6,8 @@ with CTE_SOURCE as (
 , CTE_RENAME as (
     select
     ID as REFERRAL_ID
-    , CREATED_AT as CREATED_AT_DATE_TIME_UTC
-    , UPDATED_AT as UPDATED_AT_DATE_TIME_UTC
+    , {{ unix_to_timestamp('CREATED_AT', 'ns', 'CREATED_AT_DATE_TIME') }}
+    , {{ unix_to_timestamp('UPDATED_AT', 'ns', 'UPDATED_AT_DATE_TIME') }}
     , COMPANY_ID
     , PARTNER_ID
     , CONSULTANT_ID

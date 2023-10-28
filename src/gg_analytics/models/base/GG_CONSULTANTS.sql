@@ -5,8 +5,8 @@ with CTE_SOURCE as (
 
 , CTE_RENAME as (
     select
-    NAME::varchar as SALES_EMPLOYEE_NAME
-    , COUNTRY::varchar as SALES_EMPLOYEE_COUNTRY
+    NAME::varchar as CONSULTANT_NAME
+    , COUNTRY::varchar as CONSULTANT_COUNTRY
     from CTE_SOURCE
 )
 

@@ -3,4 +3,5 @@ gg_analytics:
     dev:
       type: duckdb
       path: ../../dbfile.duckdb
+      schema: BASE
   target: dev

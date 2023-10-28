@@ -1,2 +1,2 @@
-*.duckdb
-*.user.yml
+dbfile.duckdb
+.user.yml
