@@ -1,6 +1,7 @@
-{# {{ config(materialized='external', location='output/GG_PARTNERS.csv') }} #}
+{# {{ config(materialized='external', location='output/{{this}}.csv') }} #}
 
-with CTE_SOURCE as (
+with
+CTE_SOURCE as (
     select *
     from {{ ref('PARTNERS_RAW') }}
 )

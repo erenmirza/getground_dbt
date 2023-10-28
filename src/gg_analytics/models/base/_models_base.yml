@@ -1,6 +1,28 @@
 version: 2
 
 models:
+
   - name: GG_PARTNERS
+    columns:
+      - name: PARTNER_ID
+      - name: PARTNER_TYPE
+      - name: PARTNER_SALES_CONTACT_NAME
+      - name: CREATED_AT_DATE_TIME
+      - name: UPDATED_AT_DATE_TIME
+
   - name: GG_REFERRALS
+    columns:
+      - name: REFERRAL_ID
+      - name: COMPANY_ID
+      - name: PARTNER_ID
+      - name: PARTNER_CONSULTANT_ID
+      - name: REFERRAL_STATUS
+      - name: IS_OUTBOUND
+      - name: CREATED_AT_DATE_TIME
+      - name: UPDATED_AT_DATE_TIME
+
   - name: GG_SALES_CONTACT
+    columns:
+      - name: SALES_CONTACT_NAME
+      - name: SALES_CONTACT_COUNTRY_NAME
+

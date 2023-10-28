@@ -1,4 +1,5 @@
-with CTE_SOURCE as (
+with
+CTE_SOURCE as (
     select *
     from {{ ref('SALES_PEOPLE_RAW') }}
 )

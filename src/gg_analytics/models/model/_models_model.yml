@@ -1,9 +1,104 @@
 version: 2
 
 models:
+
   - name: COMPANY
+    description: markdown_string
+    columns:
+      - name: COMPANY_ID
+        description: markdown_string
+        tests:
+          - not_null
+          - unique
+      - name: COMPANY_STATUS
+        description: markdown_string
+  
   - name: COUNTRY
+    columns:
+      - name: COUNTRY_ID
+        description: markdown_string
+        tests:
+          - not_null
+          - unique
+      - name: COUNTRY_NAME
+        description: markdown_string
+      - name: COUNTRY_CODE
+        description: markdown_string
+
   - name: PARTNER_CONSULTANT
+    tests:
+      - unique:
+          column_name: "(PARTNER_ID || '-' || PARTNER_CONSULTANT_ID)"
+    columns:
+      - name: PARTNER_ID
+        description: markdown_string
+        tests:
+          - not_null
+      - name: PARTNER_CONSULTANT_ID
+        description: markdown_string
+        tests:
+          - not_null
+      - name: FIRST_REFERRAL_DATE_TIME
+        description: markdown_string
+      - name: LAST_REFERRAL_DATE_TIME
+        description: markdown_string
+
   - name: PARTNER_REFERRALS
+    columns:
+      - name: REFERRAL_ID
+        description: markdown_string
+        tests:
+          - not_null
+          - unique
+      - name: COMPANY_ID
+        description: markdown_string
+      - name: REFERRAL_TYPE
+        description: markdown_string
+      - name: REFERRAL_STATUS
+        description: markdown_string
+      - name: REFERRAL_COUNTRY_ID
+        description: markdown_string
+      - name: PARTNER_ID
+        description: markdown_string
+      - name: PARTNER_CONSULTANT_ID
+        description: markdown_string
+      - name: PARTNER_SALES_CONTACT_ID
+        description: markdown_string
+      - name: CREATED_AT_DATE_TIME
+        description: markdown_string
+      - name: UPDATED_AT_DATE_TIME
+        description: markdown_string
+
   - name: PARTNER
+    columns:
+      - name: PARTNER_ID
+        description: markdown_string
+        tests:
+          - not_null
+          - unique
+      - name: PARTNER_TYPE
+        description: markdown_string
+      - name: PARTNER_STATUS
+        description: markdown_string
+      - name: PARTNER_SALES_CONTACT_ID
+        description: markdown_string
+      - name: PARTNER_SALES_CONTACT_NAME
+        description: markdown_string
+      - name: CREATED_AT_DATE_TIME
+        description: markdown_string
+      - name: UPDATED_AT_DATE_TIME
+        description: markdown_string
+
   - name: SALES_CONTACT
+    columns:
+      - name: SALES_CONTACT_ID
+        description: markdown_string
+        tests:
+          - not_null
+          - unique
+      - name: SALES_CONTACT_NAME
+        description: markdown_string
+      - name: SALES_CONTACT_COUNTRY_ID
+        description: markdown_string
+      - name: SALES_CONTACT_COUNTRY_NAME
+        description: markdown_string
