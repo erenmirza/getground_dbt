@@ -13,6 +13,8 @@ The task is to:
         - Deduplicate in a stage schema
         - Reference the above as a dbt source
 - Run some SQL queries and analysis
+    - Mermaid diagrams used to show design of conceptual relationships and the physical erd implemented
+        - Not all columns were added within the implementation as out of tests scope
     - Star schema model implemented to showcase a potential modelling solution for BI & analytical reporting
     - Streamlit app developed to
         - Profile the base models for data quality issues
