@@ -6,6 +6,6 @@ gg_analytics:
       schema: BASE
     prod:
         type: duckdb
-        path: ./src/duckdb/dev/dbfile.duckdb
+        path: ./src/duckdb/prod/dbfile.duckdb
         schema: BASE  
   target: dev
