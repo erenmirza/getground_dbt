@@ -5,6 +5,7 @@
 The task is to:
 - Create a local SQL database for any user to run
     - Used duckdb as local SQL database
+    - pipenv to as package and dependency manager
 - Insert data into the SQL database
     - Used duckdb & dbt functionality to ingest csv as sources
     - Could have written scripts to manually insert but not required, had this been done:
