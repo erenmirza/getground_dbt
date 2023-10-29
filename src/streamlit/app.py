@@ -80,12 +80,14 @@ def main():
   elif model_selection == 'GG_SALES_CONTACTS':
     
       st.dataframe(retrieve_answer('Show an example record from this model', 'gg_sales_contacts_example_record.sql'))
+      
       st.dataframe(retrieve_answer('How many sales contacts are there?', 'gg_sales_contacts_row_count.sql'))
       st.text("""
               - One row relates to a single sales contact operating in one of the offices
               - There are no name duplicates in the table, however as name is likely to be duplicated, the primary key is assumed to be
               name concatenated with the office country
       """)
+      
       df3 = retrieve_answer('How many sales contacts operate in each office?', 'gg_sales_contacts_by_office.sql')
       st.bar_chart(data=df3, x='SALES_CONTACT_COUNTRY_NAME', y='CNT', color='SALES_CONTACT_COUNTRY_NAME')
       st.text("""
@@ -94,7 +96,51 @@ def main():
               - Least in HongKong
               - Naming of countries is unconventional, mapping may be requried
       """)
+      
+  elif model_selection == 'GG_REFERRALS':
+    
+      st.dataframe(retrieve_answer('Show an example record from this model', 'gg_referrals_example_record.sql'))
+      
+      st.dataframe(retrieve_answer('How many referrals are there?', 'gg_referrals_row_count.sql'))
+      st.text("""
+              - One row relates to a single referral id, referral id is primary key
+              - Less partners in this table than in GG_PARTNERS
+              - Consultant ID, unsure if a consultant can work at multiple partners, may be helpful to concatenante partner id and consultant id
+              - A single company id can have multiple referrals
+      """)
+      
+      df4 = retrieve_answer('What values can referral status take on?', 'gg_referrals_referral_status_values.sql')
+      st.bar_chart(data=df4, x='REFERRAL_STATUS', y='CNT', color='REFERRAL_STATUS')
+      st.text("""
+              - Most referrals currently have a successful status
+              - Few referrals have a disinterested status
+              - How long is it acceptable for a referral to remain as pending?
+                  - Perhaps in analytical layer, after a certain amount of time the referral should default to disinterested/ignored
+      """)
+      
+      df5 = retrieve_answer('What values can is_outbound take on?', 'gg_referrals_is_outbound_values.sql')
+      st.bar_chart(data=df5, x='is_outbound', y='CNT', color='is_outbound')
+      st.text("""
+              - 63.4% of referrals are not outbound
+              - numeric value for a boolean flag
+      """)
 
+      df6 = retrieve_answer('Show average referrals created in a 7 day period as a rolling average?', 'gg_referrals_7_day_rolling.sql')
+      st.line_chart(data=df6, x='date_key', y='REFERRALS_CREATED_7_DAY_AVG', color='REFERRAL_STATUS')
+
+      st.text("""
+              - Majority of referrals created historically now have a status of accepted
+              - Referrals sent later typically have a status of pending
+              - This makes sense as referrals may take some time before being updated to successful
+              - Large spike in referrals created around March 2021 and April 2021
+      """)
+
+  else:
+    user_query = st.text_area('Enter your SQL query here:', height=100)
+    if user_query:
+      st.dataframe(run_user_query(query=user_query))
+    else:
+      pass
 
 if __name__ == '__main__':
   main()

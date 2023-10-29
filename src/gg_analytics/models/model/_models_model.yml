@@ -107,3 +107,5 @@ models:
         description: Identifier for the country associated with the sales contact
       - name: SALES_CONTACT_COUNTRY_NAME
         description: Name of the country associated with the sales contact
+
+  - name: DATE
