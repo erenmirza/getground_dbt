@@ -3,102 +3,107 @@ version: 2
 models:
 
   - name: COMPANY
-    description: markdown_string
+    description: Company information
     columns:
       - name: COMPANY_ID
-        description: markdown_string
+        description: Unique identifier for a company
         tests:
           - not_null
           - unique
       - name: COMPANY_STATUS
-        description: markdown_string
-  
+        description: Status of the company
+
   - name: COUNTRY
+    description: Country information
     columns:
       - name: COUNTRY_ID
-        description: markdown_string
+        description: Unique identifier for a country
         tests:
           - not_null
           - unique
       - name: COUNTRY_NAME
-        description: markdown_string
+        description: Name of the country
       - name: COUNTRY_CODE
-        description: markdown_string
+        description: ISO code representing the country
 
   - name: PARTNER_CONSULTANT
+    description: Information about consultants who work for Getground partners
     tests:
       - unique:
           column_name: "(PARTNER_ID || '-' || PARTNER_CONSULTANT_ID)"
     columns:
       - name: PARTNER_ID
-        description: markdown_string
+        description: Unique identifier for a partner
         tests:
           - not_null
       - name: PARTNER_CONSULTANT_ID
-        description: markdown_string
+        description: Unique identifier for a partner consultant
         tests:
           - not_null
       - name: FIRST_REFERRAL_DATE_TIME
-        description: markdown_string
+        description: Date and time of the first referral
       - name: LAST_REFERRAL_DATE_TIME
-        description: markdown_string
+        description: Date and time of the last referral
 
   - name: PARTNER_REFERRALS
+    description: Information about partner referrals
     columns:
       - name: REFERRAL_ID
-        description: markdown_string
+        description: Unique identifier for a referral
         tests:
           - not_null
           - unique
       - name: COMPANY_ID
-        description: markdown_string
+        description: Identifier for the company associated with the referral
       - name: REFERRAL_TYPE
-        description: markdown_string
+        description: Type of referral
       - name: REFERRAL_STATUS
-        description: markdown_string
+        description: Status of the referral
       - name: REFERRAL_COUNTRY_ID
-        description: markdown_string
+        description: Identifier for the country associated with the referral
       - name: PARTNER_ID
-        description: markdown_string
+        description: Identifier for the partner associated with the referral
       - name: PARTNER_CONSULTANT_ID
-        description: markdown_string
+        description: Identifier for the partner consultant associated with the referral
       - name: PARTNER_SALES_CONTACT_ID
-        description: markdown_string
+        description: Identifier for the sales contact associated with the referral
       - name: CREATED_AT_DATE_TIME
-        description: markdown_string
+        description: Date and time when the referral was created
       - name: UPDATED_AT_DATE_TIME
-        description: markdown_string
+        description: Date and time when the referral was last updated
 
   - name: PARTNER
+    description: Information about partners
     columns:
       - name: PARTNER_ID
-        description: markdown_string
+        description: Unique identifier for a partner
         tests:
           - not_null
           - unique
       - name: PARTNER_TYPE
-        description: markdown_string
+        description: Type of partner
       - name: PARTNER_STATUS
-        description: markdown_string
+        description: Status of the partner
       - name: PARTNER_SALES_CONTACT_ID
-        description: markdown_string
+        description: Identifier for the sales contact associated with the partner
       - name: PARTNER_SALES_CONTACT_NAME
-        description: markdown_string
+        description: Name of the sales contact associated with the partner
       - name: CREATED_AT_DATE_TIME
-        description: markdown_string
+        description: Date and time when the partner was created
       - name: UPDATED_AT_DATE_TIME
-        description: markdown_string
+        description: Date and time when the partner was last updated
 
   - name: SALES_CONTACT
+    description: Information about sales contacts
     columns:
       - name: SALES_CONTACT_ID
-        description: markdown_string
+        description: Unique identifier for a sales contact
         tests:
           - not_null
           - unique
       - name: SALES_CONTACT_NAME
-        description: markdown_string
+        description: Name of the sales contact
       - name: SALES_CONTACT_COUNTRY_ID
-        description: markdown_string
+        description: Identifier for the country associated with the sales contact
       - name: SALES_CONTACT_COUNTRY_NAME
-        description: markdown_string
+        description: Name of the country associated with the sales contact

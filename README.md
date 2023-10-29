@@ -1,13 +1,24 @@
 # Getground Task
 
-## Description
+## Brief Requirements & Implementation Summary
 
-The repository is to:
+The task is to:
 - Create a local SQL database for any user to run
+    - Used duckdb as local SQL database
 - Insert data into the SQL database
+    - Used duckdb & dbt functionality to ingest csv as sources
+    - Could have written scripts to manually insert but not required
 - Run some SQL queries and analysis
+    - Star schema model implemented to showcase a potential modelling solution for BI & analytical reporting
+    - Streamlit app developed to
+        - Profile the base models for data quality issues
+        - Run any query against the database through a visual frontend
 - Document the models and queries
+    - dbt primary key tests added to all models downstream of base
+    - unit tests added when working in dev target
+    - yml documentation added for seeds, base and presentation models
 - Explain and visualize outputs to the questions asked
+    - Summary notes included after each question and answer within the streamlit app
 
 See the file `conceptual_erd.md` in `/docs` for an explanation of the models and their relationships
 
@@ -26,7 +37,12 @@ gg_analytics:
   outputs:
     dev:
       type: duckdb
-      path: ../../dbfile.duckdb
+      path: ./src/duckdb/dev/dbfile.duckdb
+      schema: BASE
+    prod:
+        type: duckdb
+        path: ./src/duckdb/dev/dbfile.duckdb
+        schema: BASE  
   target: dev
 ```
 
@@ -59,11 +75,4 @@ duckcli src/duckdb/dev/dbfile.duckdb
 * View visualisations and answers to questions
 ```
 streamlit run src/streamlit/app.py
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
 ```

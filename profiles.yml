@@ -2,10 +2,10 @@ gg_analytics:
   outputs:
     dev:
       type: duckdb
-      path: ../../src/duckdb/dev/dbfile.duckdb
+      path: ./src/duckdb/dev/dbfile.duckdb
       schema: BASE
     prod:
         type: duckdb
-        path: ../../src/duckdb/prod/dbfile.duckdb
+        path: ./src/duckdb/dev/dbfile.duckdb
         schema: BASE  
   target: dev
