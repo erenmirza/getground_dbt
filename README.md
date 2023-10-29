@@ -7,7 +7,10 @@ The task is to:
     - Used duckdb as local SQL database
 - Insert data into the SQL database
     - Used duckdb & dbt functionality to ingest csv as sources
-    - Could have written scripts to manually insert but not required
+    - Could have written scripts to manually insert but not required, had this been done:
+        - Insert into a raw schema
+        - Deduplicate in a stage schema
+        - Reference the above as a dbt source
 - Run some SQL queries and analysis
     - Star schema model implemented to showcase a potential modelling solution for BI & analytical reporting
     - Streamlit app developed to
@@ -76,3 +79,14 @@ duckcli src/duckdb/dev/dbfile.duckdb
 ```
 streamlit run src/streamlit/app.py
 ```
+
+## Future Work & Improvements
+- Could implement Lightdash on top to have an entirely complete, lightweight BI solution
+    - semantic layer modelling
+    - dbt metrics/MetricFlow
+- Docker for code deployment and infrastructure management
+- csv_path_source variable in the project was added for simplicity, not ideal
+- accepted_values testing and referential integrity testing
+    - not added purposefully as more business context is required to raise an alert for these tests
+- Add more targets to integrate with Snowflake/Bigquery etc...
+- Develop cross database macros
