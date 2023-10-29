@@ -1,0 +1,24 @@
+sources:
+  - name: GETGROUND_INGEST
+    tables:
+      - name: TBL_PARTNERS
+        meta:
+          external_location: "read_csv(
+            '{{ var('csv_sources_path') }}/partners.csv'
+            , header=true
+            , auto_detect=true
+            )"
+      - name: TBL_REFERRALS
+        meta:
+          external_location: "read_csv(
+            '{{ var('csv_sources_path') }}/referrals.csv'
+            , header=true
+            , auto_detect=true
+            )"
+      - name: TBL_SALES_PEOPLE
+        meta:
+          external_location: "read_csv(
+            '{{ var('csv_sources_path') }}/sales_people.csv'
+            , header=true
+            , auto_detect=true
+            )"

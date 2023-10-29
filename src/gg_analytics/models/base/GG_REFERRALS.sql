@@ -1,7 +1,7 @@
 with
 CTE_SOURCE as (
     select *
-    from {{ ref('REFERRALS_RAW') }}
+    from {{ source('GETGROUND_INGEST', 'TBL_REFERRALS') }}
 )
 
 , CTE_RENAME as (

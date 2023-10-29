@@ -3,7 +3,7 @@
 with
 CTE_SOURCE as (
     select *
-    from {{ ref('PARTNERS_RAW') }}
+    from {{ source('GETGROUND_INGEST', 'TBL_PARTNERS') }}
 )
 
 , CTE_RENAME as (

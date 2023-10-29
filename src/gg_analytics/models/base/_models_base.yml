@@ -21,7 +21,7 @@ models:
       - name: CREATED_AT_DATE_TIME
       - name: UPDATED_AT_DATE_TIME
 
-  - name: GG_SALES_CONTACT
+  - name: GG_SALES_CONTACTS
     columns:
       - name: SALES_CONTACT_NAME
       - name: SALES_CONTACT_COUNTRY_NAME

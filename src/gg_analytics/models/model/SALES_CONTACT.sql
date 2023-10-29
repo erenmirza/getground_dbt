@@ -1,7 +1,7 @@
 with
 CTE_SALES_CONTACTS_SOURCE as (
   select *
-  from {{ gg_ref('GG_SALES_CONTACT', enable_mock=false) }}
+  from {{ gg_ref('GG_SALES_CONTACTS', enable_mock=false) }}
 )
 
 , CTE_COUNTRY_SOURCE as (
