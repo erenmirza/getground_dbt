@@ -40,17 +40,25 @@ pipenv install
 ```
 pipenv shell
 ```
-* Change to the dbt directory
+* Replace the csv_sources_path variable in the dbt_project.yml
 ```
-cd .\src\gg_analytics\
+  csv_sources_path: '{DBT_PROJECT_DIR}/src/gg_analytics/models/base'
 ```
 * Test installation by running dbt debug
 ```
-dbt debug
+dbt debug --project-dir src/gg_analytics
 ```
 * Run seeds and models
 ```
-dbt build
+dbt build --project-dir src/gg_analytics
+```
+* Query the generated database
+```
+duckcli src/duckdb/dev/dbfile.duckdb
+```
+* View visualisations and answers to questions
+```
+streamlit run src/streamlit/app.py
 ```
 
 ## Help
