@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: GG_REFERRALS__PARTNER_CONSULTANT__MOCK
+  - name: PARTNER_CONSULTANT__EXPECTED
+    tests:
+      - dbt_utils.equal_rowcount:
+          compare_model: ref('PARTNER_CONSULTANT')
+      - dbt_utils.equality:
+          compare_model:  ref('PARTNER_CONSULTANT')   
+          compare_columns:
+            - PARTNER_ID
+            - PARTNER_CONSULTANT_ID

@@ -1,4 +1,4 @@
-{# {{ config(materialized='external', location='output/{{this}}.csv') }} #}
+{# {{ config(materialized='external', location='outputs/{{this.name}}.csv') }} #}
 
 with
 CTE_SOURCE as (

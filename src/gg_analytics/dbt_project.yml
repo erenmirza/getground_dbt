@@ -24,18 +24,32 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 seeds:
-  base:
-    +enabled: true
-    +schema: BASE
-    +full_refresh: true
+  gg_analytics:
+    base:
+      +enabled: true
+      +schema: BASE
+      +full_refresh: true
+
+    model:
+      mock:
+        +enabled: "{{ ( target.name == 'dev' ) }}"
+        +schema: MOCK
+        +full_refresh: true
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 models:
-  base:
-    +materialized: view
-    +schema: BASE
+  gg_analytics:
+    base:
+      +materialized: view
+      +schema: BASE
+        
 
-  model:
-    +materialized: view
-    +schema: MODEL
+    model:
+      +materialized: view
+      +schema: MODEL
+
+      mock:
+        +enabled: "{{ ( target.name == 'dev' ) }}"
+        +materialized: view
+        +schema: MOCK

@@ -1,17 +1,17 @@
 with
 CTE_REFERALLS_SOURCE as (
   select *
-  from {{ ref('GG_REFERRALS') }}
+  from {{ gg_ref('GG_REFERRALS', enable_mock=false) }}
 )
 
 , CTE_PARTNERS_SOURCE as (
   select *
-  from {{ ref('PARTNER') }}
+  from {{ gg_ref('PARTNER', enable_mock=false) }}
 )
 
 , CTE_SALES_CONTACTS_SOURCE as (
   select *
-  from {{ ref('SALES_CONTACT') }}
+  from {{ gg_ref('SALES_CONTACT', enable_mock=false) }}
 )
 
 , CTE_PARTNER_REFERRALS as (
@@ -23,8 +23,7 @@ CTE_REFERALLS_SOURCE as (
         when not(R.IS_OUTBOUND) then 'Inbound'
       end as REFERRAL_TYPE
     , R.REFERRAL_STATUS
-    , SC.SALES_CONTACT_COUNTRY_ID as REFERRAL_COUNTRY_ID
-    , SC.SALES_CONTACT_COUNTRY_NAME as REFFERAL_COUNTRY_NAME
+    , P.PARTNER_SALES_CONTACT_COUNTRY_CODE as REFERRAL_COUNTRY_CODE
     , P.PARTNER_ID
     , R.PARTNER_CONSULTANT_ID
     , P.PARTNER_SALES_CONTACT_ID as PARTNER_SALES_CONTACT_ID
@@ -43,7 +42,7 @@ CTE_REFERALLS_SOURCE as (
     , COMPANY_ID
     , REFERRAL_TYPE
     , REFERRAL_STATUS
-    , REFERRAL_COUNTRY_ID
+    , REFERRAL_COUNTRY_CODE
     , PARTNER_ID
     , PARTNER_CONSULTANT_ID
     , PARTNER_SALES_CONTACT_ID

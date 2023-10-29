@@ -1,0 +1,6 @@
+version: 2
+
+seeds:
+
+  - name: GG_REFERRALS__PARTNER_CONSULTANT__MOCK__RAW
+  - name: PARTNER_CONSULTANT__EXPECTED__RAW

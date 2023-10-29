@@ -1,7 +1,7 @@
 with
 CTE_REFERALLS_SOURCE as (
   select *
-  from {{ ref('GG_REFERRALS') }}
+  from {{ gg_ref('GG_REFERRALS', enable_mock=true) }}
 )
 
 , CTE_PARTNER_CONSULTANTS as (
